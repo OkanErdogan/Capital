@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;600;700&display=swap');
+
+:root {
+  --gold: #f2c14e;
+  --gold2: #d89b1c;
+  --blue: #3fc6ff;
+  --red: #ff6b6b;
+  --bg: #0b1020;
+  --card: #111827;
+  --card2: #141c35;
+  --border: #1e2d52;
+  --text: #e8eaf6;
+  --muted: #7f8db5;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: "Manrope", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+a { color: var(--gold); }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+/* ── HEADER ── */
+header.top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: inherit;
+}
+.brand svg { border-radius: 10px; flex: none; }
+.brand span {
+  font-family: "Unbounded", sans-serif;
+  font-size: 22px; letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.lang { display: flex; gap: 6px; }
+.lang button {
+  font: inherit; font-weight: 700; font-size: 14px;
+  border: 1px solid var(--border); background: var(--card2);
+  color: var(--muted); border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.lang button[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  border-color: var(--gold); color: #0b1020;
+}
+
+/* ── HERO ── */
+.hero {
+  border-radius: 28px;
+  padding: 52px 28px 44px;
+  margin-top: 28px;
+  background: linear-gradient(145deg, #1a2a52 0%, #0f1c3a 45%, #0b1020 100%);
+  border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(242,193,78,.12) 0%, transparent 65%),
+              radial-gradient(ellipse 50% 50% at 10% 80%, rgba(63,198,255,.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero .tag {
+  font-weight: 700; letter-spacing: 0.2em; font-size: 12px;
+  color: var(--gold); margin-bottom: 16px; text-transform: uppercase;
+}
+.hero h1 {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.1; margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+.hero h1.sec { color: var(--muted); font-size: clamp(18px, 3.5vw, 28px); margin-bottom: 18px; }
+.hero p { font-size: 17px; margin: 0 0 10px; max-width: 560px; color: var(--text); }
+.hero p.sub { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: #0b1020; text-decoration: none;
+  font-weight: 700; font-size: 15px;
+  padding: 13px 22px; border-radius: 16px;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .88; }
+.btn svg { flex: none; }
+.hero-img {
+  margin-top: 32px;
+  display: flex; gap: 12px; overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.hero-img::-webkit-scrollbar { display: none; }
+
+/* ── FEATURES ── */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px; margin: 28px 0;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px; padding: 22px;
+  transition: border-color .2s;
+}
+.card:hover { border-color: rgba(242,193,78,.35); }
+.card h3 { margin: 0 0 6px; font-size: 17px; }
+.card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.emoji { font-size: 28px; display: block; margin-bottom: 10px; }
+
+/* ── HOW IT WORKS ── */
+.steps { display: flex; flex-direction: column; gap: 12px; margin: 0 0 28px; }
+.step {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 18px 20px;
+}
+.step-num {
+  width: 32px; height: 32px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: #0b1020; font-weight: 900; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.step-body h4 { margin: 0 0 4px; font-size: 15px; }
+.step-body p { margin: 0; color: var(--muted); font-size: 13px; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(18px, 3.5vw, 24px);
+  margin: 40px 0 16px;
+  letter-spacing: -0.01em;
+}
+
+/* ── DOC PAGE ── */
+article.doc {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 22px; padding: 28px 24px; margin: 20px 0 28px;
+}
+article.doc h1 {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(22px, 5vw, 30px); margin-top: 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+article.doc h2 { font-size: 18px; margin-top: 28px; color: var(--text); }
+article.doc ul, article.doc ol { padding-left: 20px; color: var(--muted); }
+article.doc li { margin-bottom: 6px; }
+article.doc p { color: var(--muted); }
+article.doc strong { color: var(--text); }
+.muted { color: var(--muted); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0 48px; color: var(--muted); font-size: 14px;
+  display: flex; flex-wrap: wrap; gap: 16px;
+  justify-content: space-between; align-items: flex-start;
+  margin-top: 40px;
+}
+footer nav { display: flex; gap: 16px; flex-wrap: wrap; }
+footer a { color: var(--muted); text-decoration: none; transition: color .15s; }
+footer a:hover { color: var(--gold); }
+
+/* ── LANG ── */
+[data-lang] { display: none; }
+html[lang="tr"] [data-lang="tr"],
+html[lang="en"] [data-lang="en"] { display: revert; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 540px) {
+  .hero { padding: 36px 20px 32px; border-radius: 20px; }
+  .features { grid-template-columns: 1fr; }
+  footer { flex-direction: column; }
+}
